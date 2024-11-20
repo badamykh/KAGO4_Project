@@ -5,42 +5,38 @@ import KAGO_framework.view.DrawTool;
 
 import java.awt.*;
 
+/**
+ * Repräsentiert eine Wolke. Der Teil mit "extends" wird später erklärt und jetzt ignoriert - oder wurde schon erklärt.
+ */
 public class Cloud extends GraphicalObject {
-    public Cloud(){
-        // Hier passiert momentan nichts
+    private double s;
+
+    public Cloud(double x, double y, double size){
+        this.x = x;
+        this.y = y;
+        this.s = size;
     }
 
+    /**
+     * Diese Methode zeichnet den die optische Repräsentation eines Cloud-Objekts. Wird vom Framework unaufhörlich automatisch mit jedem Frame aufgerufen.
+     */
     @Override
     public void draw(DrawTool drawTool) {
         /** Wolken */
         drawTool.setCurrentColor(Color.WHITE);
-        drawTool.drawFilledCircle(410, 70, 30);
-        drawTool.setCurrentColor(Color.BLACK);
-        drawTool.drawCircle(410, 70, 30);
+        drawTool.drawFilledCircle(x+50*s, y-20*s, 30*s);
         drawTool.setCurrentColor(Color.WHITE);
-        drawTool.drawFilledCircle(360, 90, 40);
-        drawTool.setCurrentColor(Color.BLACK);
-        drawTool.drawCircle(360, 90, 40);
+        drawTool.drawFilledCircle(x, y, 40*s);
         drawTool.setCurrentColor(Color.WHITE);
-        drawTool.drawFilledCircle(410, 120, 40);
-        drawTool.setCurrentColor(Color.BLACK);
-        drawTool.drawCircle(410, 120, 40);
+        drawTool.drawFilledCircle(x+50*s, y+30*s, 40*s);
         drawTool.setCurrentColor(Color.WHITE);
-        drawTool.drawFilledCircle(510, 100, 40);
-        drawTool.setCurrentColor(Color.BLACK);
-        drawTool.drawCircle(510, 100, 40);
+        drawTool.drawFilledCircle(x+150*s, y+10*s, 40*s);
         drawTool.setCurrentColor(Color.WHITE);
-        drawTool.drawFilledCircle(460, 120, 35);
-        drawTool.setCurrentColor(Color.BLACK);
-        drawTool.drawCircle(460, 120, 35);
+        drawTool.drawFilledCircle(x+100*s, y+30*s, 35*s);
         drawTool.setCurrentColor(Color.WHITE);
-        drawTool.drawFilledCircle(460, 70, 35);
-        drawTool.setCurrentColor(Color.BLACK);
-        drawTool.drawCircle(460, 70, 35);
+        drawTool.drawFilledCircle(x+100*s, y-20*s, 35*s);
         drawTool.setCurrentColor(Color.WHITE);
-        drawTool.drawFilledCircle(460, 120, 35);
-        drawTool.setCurrentColor(Color.BLACK);
-        drawTool.drawCircle(460, 120, 35);
+        drawTool.drawFilledCircle(x+100*s, y+30*s, 35*s);
 
     }
 

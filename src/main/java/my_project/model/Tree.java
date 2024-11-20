@@ -5,31 +5,37 @@ import KAGO_framework.view.DrawTool;
 
 import java.awt.*;
 
+/**
+ * Repräsentiert ein Baum. Der Teil mit "extends" wird später erklärt und jetzt ignoriert - oder wurde schon erklärt.
+ */
 public class Tree extends GraphicalObject {
-    public Tree(){
-        // Hier passiert momentan nichts
+    private double s;
+
+    public Tree(double x, double y, double size){
+        this.x = x;
+        this.y = y;
+        this.s = size;
     }
 
+    /**
+     * Diese Methode zeichnet den die optische Repräsentation eines Tree-Objekts. Wird vom Framework unaufhörlich automatisch mit jedem Frame aufgerufen.
+     */
     @Override
     public void draw(DrawTool drawTool) {
-        /** Gras */
-        drawTool.setCurrentColor(new Color(19, 133, 16));
-        drawTool.drawFilledEllipticArc(-170,450,600,300,0, 180, 2);
-        drawTool.drawFilledEllipticArc(130,450,600,300,0, 180, 2);
         /** Baum */
         drawTool.setCurrentColor(new Color(58,28,28));
-        drawTool.drawFilledRectangle(460, 390, 20, 100);
+        drawTool.drawFilledRectangle(x+50*s, y+90*s, 20*s, 100*s);
         /** Baumkrone */
         drawTool.setCurrentColor(new Color(247, 145, 35));
-        drawTool.drawFilledEllipticArc(410,360,120,70,0, 360, 2);
-        drawTool.drawFilledEllipticArc(425,330,90,53,0, 360, 2);
-        drawTool.drawFilledEllipticArc(440,305,60,35,0, 360, 2);
-        drawTool.drawFilledCircle(470, 300, 15);
+        drawTool.drawFilledEllipticArc(x,y+60*s,120*s,70*s,0, 360, 2);
+        drawTool.drawFilledEllipticArc(x+15*s,y+30*s,90*s,53*s,0, 360, 2);
+        drawTool.drawFilledEllipticArc(x+30*s,y+5*s,60*s,35*s,0, 360, 2);
+        drawTool.drawFilledCircle(x+60*s, y, 15*s);
         drawTool.setCurrentColor(Color.BLACK);
-        drawTool.drawEllipticArc(410,360,120,70,48, -276, 0);
-        drawTool.drawEllipticArc(425,330,90,53,60, -300, 0);
-        drawTool.drawEllipticArc(440,305,60,35,65, -310, 0);
-        drawTool.drawCircle(470, 300, 15);
+        drawTool.drawEllipticArc(x,y+60*s,120*s,70*s,48, -276, 0);
+        drawTool.drawEllipticArc(x+15*s,y+30*s,90*s,53*s,60, -300, 0);
+        drawTool.drawEllipticArc(x+30*s,y+5*s,60*s,35*s,65, -310, 0);
+        drawTool.drawCircle(x+60*s, y, 15*s);
 
     }
 

@@ -5,28 +5,38 @@ import KAGO_framework.view.DrawTool;
 
 import java.awt.*;
 
+/**
+ * Repräsentiert ein Zaun. Der Teil mit "extends" wird später erklärt und jetzt ignoriert - oder wurde schon erklärt.
+ */
 public class Fence extends GraphicalObject {
-    public Fence(){
-        // Hier passiert momentan nichts
+    private double s;
+
+    public Fence(double x, double y, double size){
+        this.x = x;
+        this.y = y;
+        this.s = size;
     }
 
+    /**
+     * Diese Methode zeichnet den die optische Repräsentation eines Fence-Objekts. Wird vom Framework unaufhörlich automatisch mit jedem Frame aufgerufen.
+     */
     @Override
     public void draw(DrawTool drawTool) {
         /** Zaun */
         drawTool.setCurrentColor(new Color(139,69,19));
-        drawTool.drawFilledRectangle(0, 520, 590, 15);
-        drawTool.drawFilledRectangle(0, 555, 590, 15);
+        drawTool.drawFilledRectangle(x, y, 289*s, 15*s);
+        drawTool.drawFilledRectangle(x, y+35*s, 289*s, 15*s);
         drawTool.setCurrentColor(Color.BLACK);
-        drawTool.drawRectangle(0, 520, 590, 15);
-        drawTool.drawRectangle(0, 555, 590, 15);
+        drawTool.drawRectangle(x, y, 289*s, 15*s);
+        drawTool.drawRectangle(x, y+35*s, 289*s, 15*s);
 
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 10; i++) {
             drawTool.setCurrentColor(new Color(139,69,19));
-            drawTool.drawFilledRectangle(2+30*i, 510, 15, 70);
-            drawTool.drawFilledTriangle(2+30*i, 510, 9.5+30*i, 500, 17+30*i, 510);
+            drawTool.drawFilledRectangle(x+2*s+30*s*i, y-5, 15*s, 70*s);
+            drawTool.drawFilledTriangle(x+2.5*s+30*s*i, y-5, x+10*s+30*s*i, y-5-10*s, x+17.5*s+30*s*i, y-5);
             drawTool.setCurrentColor(Color.BLACK);
-            drawTool.drawRectangle(2+30*i, 510, 15, 70);
-            drawTool.drawTriangle(2+30*i, 510, 9.5+30*i, 500, 17+30*i, 510);
+            drawTool.drawRectangle(x+2*s+30*s*i, y-5, 15*s, 70*s);
+            drawTool.drawTriangle(x+2.5*s+30*s*i, y-5, x+10*s+30*s*i, y-5-10*s, x+17.5*s+30*s*i, y-5);
         }
     }
 
