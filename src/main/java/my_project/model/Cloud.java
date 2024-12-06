@@ -10,11 +10,15 @@ import java.awt.*;
  */
 public class Cloud extends GraphicalObject {
     private double s;
+    private int v;
+    private int r;
 
-    public Cloud(double x, double y, double size){
+    public Cloud(double x, double y, double size, int geschwindigkeit, int richtung){
         this.x = x;
         this.y = y;
-        this.s = size;
+        s = size;
+        v = geschwindigkeit;
+        r = richtung;
     }
 
     /**
@@ -42,6 +46,14 @@ public class Cloud extends GraphicalObject {
 
     @Override
     public void update(double dt){
-        // Hier passiert momentan nichts - da muss auch anfangs nichts dran geändert werden.
+        x = x + r*v*dt;
+                if(x>700){
+                    x = -60;
+                    y = Math.random()*300;
+                }
+                if (x<-200){
+                    x = 700;
+                    y = Math.random()*300;
+                }
     }
 }
