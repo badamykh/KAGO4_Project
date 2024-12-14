@@ -74,6 +74,8 @@ public class ProgramController {
         firstGrass = new Grass();
 
         // Teile dem ViewController-Objekt mit, dass die Objekte gezeichnet werden sollen
+        //viewController.draw(firstSun);
+
         viewController.draw(firstSun);
 
         viewController.draw(secondHouse);
