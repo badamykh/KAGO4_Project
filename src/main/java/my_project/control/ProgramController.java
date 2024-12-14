@@ -38,8 +38,6 @@ public class ProgramController {
     private Sun firstSun;
     private Grass firstGrass;
 
-    private int wohin;
-
     /**
      * Konstruktor
      * Dieser legt das Objekt der Klasse ProgramController an, das den Programmfluss steuert.
@@ -66,19 +64,14 @@ public class ProgramController {
         thirdHouse = new House(200, 400,1);
         thirdFence = new Fence(155, 505, 1);
 
-        if(Math.random() < 0.5){
-            wohin = -1;
-        } else {
-            wohin = 1;
-        }
+        firstSun = new Sun();
 
-        firstCloud = new Cloud(430, 70, 0.5, 50, wohin);
-        secondCloud = new Cloud(70, 200, 1, 70, 1);
+        firstCloud = new Cloud(430, 70, 0.5, 50, 1, firstSun);
+        secondCloud = new Cloud(70, 200, 1, 70, 1, firstSun);
 
         firstTree = new Tree(475, 390, 0.9);
         secondTree = new Tree(165, 425, 0.2);
 
-        firstSun = new Sun();
         firstGrass = new Grass();
 
 

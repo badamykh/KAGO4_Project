@@ -60,4 +60,12 @@ public class Sun extends GraphicalObject {
             a = 0;
         }
     }
+
+    public double getX(){
+        return x;
+    }
+
+    public double getY(){
+        return y;
+    }
 }
